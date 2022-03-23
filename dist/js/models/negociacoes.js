@@ -1,4 +1,9 @@
 export class Negociacoes {
+    constructor() {
+        this.negociacoes = [];
+    }
+    // Maneira facilitada do typescript substitui a linha de cima!
+    //private negociacoes: Negociacao[];
     adiciona(negociacao) {
         this.negociacoes.push(negociacao);
     }

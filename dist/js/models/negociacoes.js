@@ -3,7 +3,7 @@ export class Negociacoes {
         this.negociacoes = [];
     }
     // Maneira facilitada do typescript substitui a linha de cima!
-    //private negociacoes: Negociacao[];
+    //private negociacoes: Negociacao[]; // aqui não funcionou!!! tive que voltar a linha acima...
     adiciona(negociacao) {
         this.negociacoes.push(negociacao);
     }

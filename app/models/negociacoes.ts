@@ -3,7 +3,7 @@ import { Negociacao } from "./negociacao.js";
 export class Negociacoes {
      private negociacoes: Array<Negociacao> = [];
     // Maneira facilitada do typescript substitui a linha de cima!
-    //private negociacoes: Negociacao[];
+    //private negociacoes: Negociacao[]; // aqui não funcionou!!! tive que voltar a linha acima...
 
     adiciona(negociacao: Negociacao): void {
         this.negociacoes.push(negociacao);

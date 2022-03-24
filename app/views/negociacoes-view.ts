@@ -1,12 +1,7 @@
 import { Negociacoes } from "../models/negociacoes.js";
+import { View } from "./view.js";
 
-export class NegociacoesView {
-
-    private elemento: HTMLElement;
-
-    constructor(seletor: string) {
-        this.elemento = document.querySelector(seletor);
-    }
+export class NegociacoesView extends View<Negociacoes> {
 
     template(model: Negociacoes): string {
         return `
@@ -32,11 +27,9 @@ export class NegociacoesView {
                 </tbody>
             </table>        
         `;
+        // sobre a data: new Intl.DateTimeFormat().format(negociacao.data)
+        // vai pegar o formato do navegador automaticamente para cada local
+        // e formatar a data passada!
     }
 
-    update(model: Negociacoes): void {
-        const template = this.template(model);
-        console.log(template);
-        this.elemento.innerHTML = template;
-    }
 }

@@ -21,6 +21,9 @@ export abstract class View<T> {
 
     }
 
-    abstract template(model: T): string;
+    // método template será visível somente internamente a classe não sendo 
+    // possível chamar esse método na negociacao-controler por exemplo... 
+    // só aparecerá o método update disponível
+    protected abstract template(model: T): string;
 
 }    

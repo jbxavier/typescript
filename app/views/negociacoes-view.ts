@@ -3,7 +3,8 @@ import { View } from "./view.js";
 
 export class NegociacoesView extends View<Negociacoes> {
 
-    template(model: Negociacoes): string {
+    // escondendo o método do implementador, não deverá invocar esse método
+    protected template(model: Negociacoes): string {
         return `
             <table class="table table-hover table-bordered">
                 <thead>

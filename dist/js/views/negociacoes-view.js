@@ -1,5 +1,6 @@
 import { View } from "./view.js";
 export class NegociacoesView extends View {
+    // escondendo o método do implementador, não deverá invocar esse método
     template(model) {
         return `
             <table class="table table-hover table-bordered">
@@ -14,7 +15,7 @@ export class NegociacoesView extends View {
                     ${model.lista().map(negociacao => {
             return `
                             <tr>                            
-                                <td>${new Intl.DateTimeFormat().format(negociacao.data)}</td>
+                                <td>${this.converterData(negociacao.data)}</td>
                                 <td>${negociacao.quantidade}</td>
                                 <td>${negociacao.valor}</td>
                             </tr>
@@ -26,5 +27,8 @@ export class NegociacoesView extends View {
         // sobre a data: new Intl.DateTimeFormat().format(negociacao.data)
         // vai pegar o formato do navegador automaticamente para cada local
         // e formatar a data passada!
+    }
+    converterData(data) {
+        return new Intl.DateTimeFormat().format(data);
     }
 }

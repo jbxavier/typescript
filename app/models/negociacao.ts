@@ -52,4 +52,19 @@ export class Negociacao {
     get volume(): number {
         return this.quantidade * this.valor;
     }
+
+    // static: torna o método de classe, não precisa de instância para acessar o método
+    // Negociacao.criaDe(...)
+    public static criaDe(dataString: string, quantidadeString: string, valorString: string): Negociacao {
+         // expressão reguar: pega todos os caracteres "-"
+         const exp = /-/g; 
+         // Date precisa de data no formato yyyy,mm,dd para fazer new Date
+         // como inputData.value traz a data no formato yyyy-mm-dd temos
+         // que substituir por "," através do replace
+         const date = new Date(dataString.replace(exp, ','));
+         const quantidade = parseInt(quantidadeString);
+         const valor = parseInt(valorString);
+         return new Negociacao(date, quantidade, valor);
+ 
+    }
 }

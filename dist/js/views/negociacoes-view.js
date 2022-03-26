@@ -1,6 +1,5 @@
 import { View } from "./view.js";
 export class NegociacoesView extends View {
-    // escondendo o método do implementador, não deverá invocar esse método
     template(model) {
         return `
             <table class="table table-hover table-bordered">
@@ -24,9 +23,6 @@ export class NegociacoesView extends View {
                 </tbody>
             </table>        
         `;
-        // sobre a data: new Intl.DateTimeFormat().format(negociacao.data)
-        // vai pegar o formato do navegador automaticamente para cada local
-        // e formatar a data passada!
     }
     converterData(data) {
         return new Intl.DateTimeFormat().format(data);

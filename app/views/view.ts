@@ -10,13 +10,24 @@ export abstract class View<T> {
 
     // classes filhas acessam uma propriedade protected (public somente a classe pai)
     protected elemento: HTMLElement;
+    private escapar = false;
 
-    constructor(seletor: string) {
+    // escapar?: boolean -> typescript deixa opcional a passagem de parâmetro
+    // o opcional "?" só pode ser no último parâmetro
+    constructor(seletor: string, escapar?: boolean) {
         this.elemento = document.querySelector(seletor);
+         // caso não seja passado(opcional) ele será undefined, ou seja, falso
+        if (escapar) { 
+            this.escapar = escapar;
+        }
     }
 
     public update(model: T): void {
-        const template = this.template(model);
+        let template = this.template(model);
+        if (this.escapar) {
+            template = template
+                .replace(/<script>[\s\S]*?<\/script>/, '');                                        
+        }
         this.elemento.innerHTML = template;
 
     }

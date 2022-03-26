@@ -1,9 +1,3 @@
-/*
-    ENUM é readonly por default, não pode ser alterado em outra parte do código.
-    Fazendo dessa maneira ele pode ser utilizado em qualquer parte do sistema
-    chamando o import.
-    "OBS.: FIXAR OS VALORES PARA GARANTIR, não deixar no automático"
-*/
 export var DiasDaSemana;
 (function (DiasDaSemana) {
     DiasDaSemana[DiasDaSemana["DOMINGO"] = 0] = "DOMINGO";

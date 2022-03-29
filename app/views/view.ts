@@ -15,7 +15,13 @@ export abstract class View<T> {
     // escapar?: boolean -> typescript deixa opcional a passagem de parâmetro
     // o opcional "?" só pode ser no último parâmetro
     constructor(seletor: string, escapar?: boolean) {
-        this.elemento = document.querySelector(seletor);
+        const elemento = document.querySelector(seletor);
+        if (elemento) {
+            this.elemento = elemento as HTMLElement;
+        } else {
+            throw Error(`Seletor ${seletor} não existe no DOM`);            
+        }
+         
          // caso não seja passado(opcional) ele será undefined, ou seja, falso
         if (escapar) { 
             this.escapar = escapar;

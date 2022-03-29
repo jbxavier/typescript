@@ -13,9 +13,14 @@ export class NegociacaoController {
     private mensagemView = new MensagemView('#mensagemView');
 
     constructor() {
-        this.inputData = document.querySelector('#data');
-        this.inputQuantidade = document.querySelector('#quantidade');
-        this.inputValor = document.querySelector('#valor');
+        /* com a configuração ativa ("strictNullChecks": true) no tsconfig.json o compilador vai
+        exigir que todos os pontos que possam retornar null sejam tratados. Para o caso abaixo
+        podemos forçar o compilador aceitar os tipos indicados abaixo (convertendo) com:
+        "<HTMLInputElement>document..." ou  "as HTMLInputElement" (cast explícito)
+        */
+        this.inputData = <HTMLInputElement>document.querySelector('#data');
+        this.inputQuantidade = document.querySelector('#quantidade') as HTMLInputElement;
+        this.inputValor = document.querySelector('#valor') as HTMLInputElement;
         this.negociacoesView.update(this.negociacoes);
     }
 
